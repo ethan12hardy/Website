@@ -9,8 +9,8 @@ const data = {
   degree: "BBA in Management Information Systems, Minor in AI in Business · GPA 3.7",
   bio: "I'm a business and technology student at Texas A&M passionate about building systems that work — from data pipelines to mobile clinics. I combine technical skills with a strong business foundation to solve real-world problems.",
   email: "ethan12hardy@gmail.com",
-  github: "github.com/ethanjhardy",
-  linkedin: "linkedin.com/in/ethanjhardy",
+  github: "github.com/ethan12hardy",
+  linkedin: "linkedin.com/in/ethan12hardy",
   projects: [
     {
       title: "Lawn Care Business Operations System",
