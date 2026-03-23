@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const data = {
-  name: "Your Name",
+  name: "Ethan Hardy",
   title: "MIS Student & AI Enthusiast",
   university: "University Name",
   degree: "B.S. Management Information Systems, Minor in AI in Business",
