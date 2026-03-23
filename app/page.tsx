@@ -4,53 +4,71 @@ import { useState } from "react";
 
 const data = {
   name: "Ethan Hardy",
-  title: "MIS Student & AI Enthusiast",
-  university: "University Name",
-  degree: "B.S. Management Information Systems, Minor in AI in Business",
-  bio: "I'm a student passionate about the intersection of technology, data, and business strategy. I build systems that solve real problems — and I'm always learning something new.",
-  email: "you@email.com",
-  github: "github.com/yourhandle",
-  linkedin: "linkedin.com/in/yourhandle",
+  title: "MIS Student · AI in Business Minor · Texas A&M",
+  university: "Texas A&M University, Class of 2028",
+  degree: "BBA in Management Information Systems, Minor in AI in Business · GPA 3.7",
+  bio: "I'm a business and technology student at Texas A&M passionate about building systems that work — from data pipelines to mobile clinics. I combine technical skills with a strong business foundation to solve real-world problems.",
+  email: "ethan12hardy@gmail.com",
+  github: "github.com/ethanjhardy",
+  linkedin: "linkedin.com/in/ethanjhardy",
   projects: [
     {
-      title: "Project One",
+      title: "Lawn Care Business Operations System",
       description:
-        "A brief description of what this project does, the problem it solves, and the impact it had.",
-      tags: ["Python", "SQL", "Tableau"],
+        "Founded Tuition Lawn Care and built comprehensive spreadsheet systems to manage operational scheduling, financial tracking, and business operations — supporting a full crew and stable client base.",
+      tags: ["Excel", "Operations", "Entrepreneurship"],
       link: "#",
     },
     {
-      title: "Project Two",
+      title: "Mobile Medical Clinic Construction",
       description:
-        "Describe the tools and frameworks used, and any interesting technical or business challenges you overcame.",
-      tags: ["React", "Node.js", "REST API"],
+        "Led construction of mobile medical clinics as Construction Superintendent at TAMU BUILD, converting 40-foot shipping containers into healthcare facilities for underserved communities.",
+      tags: ["Project Management", "Leadership", "Community Impact"],
       link: "#",
     },
     {
-      title: "Project Three",
+      title: "Data Analytics Coursework & Certifications",
       description:
-        "Maybe an AI-related project, a business analysis, or a data pipeline you built for a class or internship.",
-      tags: ["Machine Learning", "Excel", "Power BI"],
+        "Completed Microsoft's Career Essentials in Data Analysis and LinkedIn's two-part Data Analytics series, applying core and extended analytics concepts using industry-standard tools.",
+      tags: ["Python", "SQL", "Data Analysis", "AWS"],
       link: "#",
     },
   ],
   experience: [
     {
-      role: "IT Intern",
-      company: "Company Name",
-      period: "Summer 2024",
+      role: "Operations Associate",
+      company: "Texas A&M Dept. of Recreational Sports",
+      period: "Jan 2026 – Present",
       bullets: [
-        "Assisted in maintaining internal databases and dashboards used by 50+ employees.",
-        "Automated a reporting workflow using Python, reducing manual effort by 3 hours/week.",
+        "Serve as a front-end customer service representative, greeting patrons and enforcing facility policies across a 373,000 sq ft. facility and 50-acre outdoor complex.",
+        "Manage entry control and complete customer transactions using Innosoft Fusion software, including equipment rentals and sales.",
       ],
     },
     {
-      role: "Teaching Assistant",
-      company: "Department of MIS",
-      period: "Fall 2023 – Present",
+      role: "Founder & CEO",
+      company: "Tuition Lawn Care",
+      period: "May 2025 – Aug 2025",
       bullets: [
-        "Supported instructor in grading and holding office hours for intro database course.",
-        "Created supplementary SQL practice sets used by 120+ students.",
+        "Founded and scaled a local lawn care business, recruiting and directing a crew to deliver high-quality services to a growing client base.",
+        "Spearheaded marketing campaigns that acquired a stable customer base and drove consistent company growth.",
+      ],
+    },
+    {
+      role: "Mentor",
+      company: "Future Business Leaders of America, TAMU",
+      period: "Aug 2025 – Present",
+      bullets: [
+        "Mentor the incoming pledge class by fostering a supportive environment that accelerates personal and professional growth.",
+        "Expanded active membership from 50 to 110 students by implementing targeted marketing strategies.",
+      ],
+    },
+    {
+      role: "Construction Superintendent",
+      company: "TAMU BUILD",
+      period: "Jan 2025 – Dec 2025",
+      bullets: [
+        "Led safe and timely construction of mobile medical clinics, overseeing daily site operations and critical project milestones.",
+        "Instructed team members on advanced construction processes using hands-on teaching techniques.",
       ],
     },
   ],
@@ -570,10 +588,11 @@ export default function Page() {
       </main>
 
       <footer>
-        © {new Date().getFullYear()} {data.name} · Built with Next.js
+        © {new Date().getFullYear()} Ethan Hardy · Built with Next.js
       </footer>
     </>
   );
 }
+
 
 
