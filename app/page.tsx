@@ -7,7 +7,7 @@ const data = {
   title: "MIS Student · AI in Business Minor · Texas A&M",
   university: "Texas A&M University, Class of 2028",
   degree: "BBA in Management Information Systems, Minor in AI in Business · GPA 3.7",
-  bio: "I'm a business and technology student at Texas A&M passionate about building systems that work — from data pipelines to mobile clinics. I combine technical skills with a strong business foundation to solve real-world problems.",
+  bio: "Howdy, I am currently pursuing a Management Information Systems degree with a minor in Artificial Intelligence in business at Texas A&M University, with a focus on building expertise in data analytics, while also learning skills like team motivation and leadership.",
   email: "ethan12hardy@gmail.com",
   github: "github.com/ethan12hardy",
   linkedin: "linkedin.com/in/ethan12hardy",
