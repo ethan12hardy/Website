@@ -45,21 +45,21 @@ const data = {
       ],
     },
     {
-      role: "Founder",
-      company: "Tuition Lawn Care",
-      period: "May 2025 – Aug 2025",
-      bullets: [
-        "Founded and scaled a local lawn care business, recruiting and directing a crew to deliver high-quality services to a growing client base.",
-        "Spearheaded marketing campaigns that acquired a stable customer base and drove consistent company growth.",
-      ],
-    },
-    {
       role: "Mentor",
       company: "Future Business Leaders of America, TAMU",
       period: "Aug 2025 – Present",
       bullets: [
         "Mentor the incoming pledge class by fostering a supportive environment that accelerates personal and professional growth.",
         "Expanded active membership from 50 to 110 students by implementing targeted marketing strategies.",
+      ],
+    },
+    {
+      role: "Founder",
+      company: "Tuition Lawn Care",
+      period: "May 2025 – Aug 2025",
+      bullets: [
+        "Founded and scaled a local lawn care business, recruiting and directing a crew to deliver high-quality services to a growing client base.",
+        "Spearheaded marketing campaigns that acquired a stable customer base and drove consistent company growth.",
       ],
     },
     {
@@ -645,6 +645,4 @@ export default function Page() {
     </>
   );
 }
-
-
 
