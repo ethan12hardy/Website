@@ -24,7 +24,6 @@ const data = {
       description:
         "Founded Tuition Lawn Care and built comprehensive spreadsheet systems to manage operational scheduling, financial tracking, and business operations — supporting a full crew and stable client base.",
       tags: ["Excel", "Operations", "Entrepreneurship"],
-      link: "#",
     },
   ],
   experience: [
