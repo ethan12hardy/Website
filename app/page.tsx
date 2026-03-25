@@ -45,7 +45,7 @@ const data = {
       ],
     },
     {
-      role: "Founder & CEO",
+      role: "Founder",
       company: "Tuition Lawn Care",
       period: "May 2025 – Aug 2025",
       bullets: [
