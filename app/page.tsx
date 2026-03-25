@@ -26,13 +26,6 @@ const data = {
       tags: ["Excel", "Operations", "Entrepreneurship"],
       link: "#",
     },
-    {
-      title: "Data Analytics Coursework & Certifications",
-      description:
-        "Completed Microsoft's Career Essentials in Data Analysis and LinkedIn's two-part Data Analytics series, applying core and extended analytics concepts using industry-standard tools.",
-      tags: ["Python", "SQL", "Data Analysis", "AWS"],
-      link: "#",
-    },
   ],
   experience: [
     {
