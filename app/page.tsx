@@ -551,26 +551,40 @@ export default function Page() {
           <div className="projects-grid">
             {data.projects.map((p, i) => (
               <RevealDiv key={i} delay={i * 100}>
-                <a
-                  href={p.link ?? "#"}
-                  className="project-card"
-                  style={{ textDecoration: "none", display: "block" }}
-                >
-                  <div className="project-row">
-                    <div>
-                      <p className="project-name">{p.title}</p>
-                      <p className="project-desc">{p.description}</p>
-                      <div className="tag-row">
-                        {p.tags.map((t) => (
-                          <span key={t} className="tag">{t}</span>
-                        ))}
+                {p.showArrow !== false ? (
+                  <a
+                    href={p.link ?? "#"}
+                    className="project-card"
+                    style={{ textDecoration: "none", display: "block" }}
+                  >
+                    <div className="project-row">
+                      <div>
+                        <p className="project-name">{p.title}</p>
+                        <p className="project-desc">{p.description}</p>
+                        <div className="tag-row">
+                          {p.tags.map((t) => (
+                            <span key={t} className="tag">{t}</span>
+                          ))}
+                        </div>
+                      </div>
+                      <span className="project-arrow">↗</span>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="project-card" style={{ cursor: "default" }}>
+                    <div className="project-row">
+                      <div>
+                        <p className="project-name">{p.title}</p>
+                        <p className="project-desc">{p.description}</p>
+                        <div className="tag-row">
+                          {p.tags.map((t) => (
+                            <span key={t} className="tag">{t}</span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    {p.showArrow !== false && (
-                      <span className="project-arrow">↗</span>
-                    )}
                   </div>
-                </a>
+                )}
               </RevealDiv>
             ))}
           </div>
