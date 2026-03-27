@@ -18,12 +18,15 @@ const data = {
         "Designed and built a personal portfolio site to showcase projects, experience, and skills — featuring smooth scroll animations, a clean editorial aesthetic, and responsive layout.",
       tags: ["Next.js", "TypeScript", "CSS", "Web Design"],
       link: "https://ethanjhardy.com",
+      showArrow: true,
     },
     {
       title: "Lawn Care Business Operations System",
       description:
         "Founded Tuition Lawn Care and built comprehensive spreadsheet systems to manage operational scheduling, financial tracking, and business operations — supporting a full crew and stable client base.",
       tags: ["Excel", "Operations", "Entrepreneurship"],
+      link: "#",
+      showArrow: false,
     },
   ],
   experience: [
@@ -66,7 +69,6 @@ const data = {
   ],
 };
 
-// Hook to observe when elements enter the viewport
 function useScrollReveal() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -550,7 +552,7 @@ export default function Page() {
             {data.projects.map((p, i) => (
               <RevealDiv key={i} delay={i * 100}>
                 <a
-                  href={p.link}
+                  href={p.link ?? "#"}
                   className="project-card"
                   style={{ textDecoration: "none", display: "block" }}
                 >
@@ -564,7 +566,9 @@ export default function Page() {
                         ))}
                       </div>
                     </div>
-                    <span className="project-arrow">↗</span>
+                    {p.showArrow !== false && (
+                      <span className="project-arrow">↗</span>
+                    )}
                   </div>
                 </a>
               </RevealDiv>
