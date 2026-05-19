@@ -1,65 +1,124 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const data = {
-  name: "Your Name",
-  title: "MIS Student & AI Enthusiast",
-  university: "University Name",
-  degree: "B.S. Management Information Systems, Minor in AI in Business",
-  bio: "I'm a student passionate about the intersection of technology, data, and business strategy. I build systems that solve real problems — and I'm always learning something new.",
-  resume: "/Ethan Hardy Main Resume.pdf",
-  email: "you@email.com",
-  github: "github.com/yourhandle",
-  linkedin: "linkedin.com/in/yourhandle",
+  name: "Ethan Hardy",
+  title: "MIS Student · AI in Business Minor · Texas A&M",
+  university: "Texas A&M University, Class of 2028",
+  degree: "BBA in Management Information Systems, Minor in AI in Business · GPA 3.7",
+  bio: "Howdy, I am currently pursuing a Management Information Systems degree with a minor in Artificial Intelligence in business at Texas A&M University, with a focus on building expertise in data analytics, while also learning skills like team motivation and leadership.",
+  email: "ethan12hardy@gmail.com",
+  github: "github.com/ethan12hardy",
+  linkedin: "linkedin.com/in/ethan12hardy",
   projects: [
     {
-      title: "Project One",
+      title: "Personal Portfolio Website",
       description:
-        "A brief description of what this project does, the problem it solves, and the impact it had.",
-      tags: ["Python", "SQL", "Tableau"],
-      link: "#",
+        "Designed and built a personal portfolio site to showcase projects, experience, and skills — featuring smooth scroll animations, a clean editorial aesthetic, and responsive layout.",
+      tags: ["Next.js", "TypeScript", "CSS", "Web Design"],
+      link: "https://ethanjhardy.com",
+      showArrow: true,
     },
     {
-      title: "Project Two",
+      title: "Lawn Care Business Operations System",
       description:
-        "Describe the tools and frameworks used, and any interesting technical or business challenges you overcame.",
-      tags: ["React", "Node.js", "REST API"],
+        "Founded Tuition Lawn Care and built comprehensive spreadsheet systems to manage operational scheduling, financial tracking, and business operations — supporting a full crew and stable client base.",
+      tags: ["Excel", "Operations", "Entrepreneurship"],
       link: "#",
-    },
-    {
-      title: "Project Three",
-      description:
-        "Maybe an AI-related project, a business analysis, or a data pipeline you built for a class or internship.",
-      tags: ["Machine Learning", "Excel", "Power BI"],
-      link: "#",
+      showArrow: false,
     },
   ],
   experience: [
     {
-      role: "IT Intern",
-      company: "Company Name",
-      period: "Summer 2024",
+      role: "Operations Associate",
+      company: "Texas A&M Dept. of Recreational Sports",
+      period: "Jan 2026 – Present",
       bullets: [
-        "Assisted in maintaining internal databases and dashboards used by 50+ employees.",
-        "Automated a reporting workflow using Python, reducing manual effort by 3 hours/week.",
+        "Serve as a front-end customer service representative, greeting patrons and enforcing facility policies across a 373,000 sq ft. facility and 50-acre outdoor complex.",
+        "Manage entry control and complete customer transactions using Innosoft Fusion software, including equipment rentals and sales.",
       ],
     },
     {
-      role: "Teaching Assistant",
-      company: "Department of MIS",
-      period: "Fall 2023 – Present",
+      role: "Mentor",
+      company: "Future Business Leaders of America, TAMU",
+      period: "Aug 2025 – Present",
       bullets: [
-        "Supported instructor in grading and holding office hours for intro database course.",
-        "Created supplementary SQL practice sets used by 120+ students.",
+        "Mentor the incoming pledge class by fostering a supportive environment that accelerates personal and professional growth.",
+        "Expanded active membership from 50 to 110 students by implementing targeted marketing strategies.",
+      ],
+    },
+    {
+      role: "Founder",
+      company: "Tuition Lawn Care",
+      period: "May 2025 – Aug 2025",
+      bullets: [
+        "Founded and scaled a local lawn care business, recruiting and directing a crew to deliver high-quality services to a growing client base.",
+        "Spearheaded marketing campaigns that acquired a stable customer base and drove consistent company growth.",
+      ],
+    },
+    {
+      role: "Construction Superintendent",
+      company: "TAMU BUILD",
+      period: "Jan 2025 – Dec 2025",
+      bullets: [
+        "Led safe and timely construction of mobile medical clinics, overseeing daily site operations and critical project milestones.",
+        "Instructed team members on advanced construction processes using hands-on teaching techniques.",
       ],
     },
   ],
 };
 
+function useScrollReveal() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      { threshold: 0.12 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, visible };
+}
+
+function RevealDiv({
+  children,
+  delay = 0,
+  className = "",
+  style = {},
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+  style?: React.CSSProperties;
+}) {
+  const { ref, visible } = useScrollReveal();
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(28px)",
+        transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
+        ...style,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Page() {
   const [activeSection, setActiveSection] = useState("about");
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const sections = ["about", "projects", "experience", "contact"];
 
@@ -79,8 +138,8 @@ export default function Page() {
           --bg: #f9f8f6;
           --ink: #1a1a18;
           --ink-light: #6b6b63;
-          --accent: #2d5a3d;
-          --accent-light: #e8f0eb;
+          --accent: #500000;
+          --accent-light: #f5e6e6;
           --rule: #e0ddd8;
           --card-bg: #ffffff;
         }
@@ -432,16 +491,13 @@ export default function Page() {
           letter-spacing: 0.04em;
         }
 
-        /* ANIMATIONS */
+        /* HERO ANIMATIONS (on load) */
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(18px); }
           to   { opacity: 1; transform: translateY(0); }
         }
 
-        .fade-up {
-          animation: fadeUp 0.55s ease both;
-        }
-
+        .fade-up { animation: fadeUp 0.55s ease both; }
         .fade-up-1 { animation-delay: 0.05s; }
         .fade-up-2 { animation-delay: 0.15s; }
         .fade-up-3 { animation-delay: 0.25s; }
@@ -453,23 +509,6 @@ export default function Page() {
           .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
           .nav-links { gap: 1.2rem; }
         }
-        .resume-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: var(--accent);
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 0.9rem;
-  letter-spacing: 0.04em;
-  transition: background 0.2s, transform 0.2s;
-}
-
-.resume-button:hover {
-  background: #1f4620;
-  transform: translate(-2px, -2px);
-}
       `}</style>
 
       <nav>
@@ -497,110 +536,140 @@ export default function Page() {
             <p className="hero-title fade-up fade-up-2">{data.title}</p>
             <p className="hero-bio fade-up fade-up-3">{data.bio}</p>
             <span className="hero-degree fade-up fade-up-4">{data.degree}</span>
-<div className="fade-up fade-up-4" style={{ marginTop: "1.5rem" }}>
- <a 
-  href={data.resume} 
-  target="_blank" 
-  rel="noopener noreferrer" 
-  className="resume-button fade-up fade-up-4"
-  style={{ marginTop: "1.5rem" }}
->
-  View Resume
-</a>
-</div>
-    </div>
-          <div
-            className="hero-monogram fade-up fade-up-2"
-            aria-hidden="true"
-          >
-            {data.name
-              .split(" ")
-              .map((n) => n[0])
-              .join("")}
+          </div>
+          <div className="hero-monogram fade-up fade-up-2" aria-hidden="true">
+            {data.name.split(" ").map((n) => n[0]).join("")}
           </div>
         </section>
 
         {/* PROJECTS */}
         <section id="projects">
-          <p className="section-label">Work</p>
-          <h2 className="section-title serif">Projects</h2>
+          <RevealDiv delay={0}>
+            <p className="section-label">Work</p>
+            <h2 className="section-title serif">Projects</h2>
+          </RevealDiv>
           <div className="projects-grid">
             {data.projects.map((p, i) => (
-              <a
-                key={i}
-                href={p.link}
-                className="project-card"
-                onMouseEnter={() => setHoveredProject(i)}
-                onMouseLeave={() => setHoveredProject(null)}
-                style={{ textDecoration: "none" }}
-              >
-                <div className="project-row">
-                  <div>
-                    <p className="project-name">{p.title}</p>
-                    <p className="project-desc">{p.description}</p>
-                    <div className="tag-row">
-                      {p.tags.map((t) => (
-                        <span key={t} className="tag">{t}</span>
-                      ))}
+              <RevealDiv key={i} delay={i * 100}>
+                <a
+                  href={p.link ?? "#"}
+                  className="project-card"
+                  style={{ textDecoration: "none", display: "block" }}
+                >
+                  <div className="project-row">
+                    <div>
+                      <p className="project-name">{p.title}</p>
+                      <p className="project-desc">{p.description}</p>
+                      <div className="tag-row">
+                        {p.tags.map((t) => (
+                          <span key={t} className="tag">{t}</span>
+                        ))}
+                {p.showArrow !== false ? (
+                  <a
+                    href={p.link ?? "#"}
+                    className="project-card"
+                    style={{ textDecoration: "none", display: "block" }}
+                  >
+                    <div className="project-row">
+                      <div>
+                        <p className="project-name">{p.title}</p>
+                        <p className="project-desc">{p.description}</p>
+                        <div className="tag-row">
+                          {p.tags.map((t) => (
+                            <span key={t} className="tag">{t}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    {p.showArrow !== false && (
+                      <span className="project-arrow">↗</span>
+                    )}
+                    </div>
+                  </a>
+                ) : (
+                  <div className="project-card" style={{ cursor: "default" }}>
+                    <div className="project-row">
+                      <div>
+                        <p className="project-name">{p.title}</p>
+                        <p className="project-desc">{p.description}</p>
+                        <div className="tag-row">
+                          {p.tags.map((t) => (
+                            <span key={t} className="tag">{t}</span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <span className="project-arrow">↗</span>
-                </div>
-              </a>
+                </a>
+                )}
+              </RevealDiv>
             ))}
           </div>
         </section>
 
         {/* EXPERIENCE */}
         <section id="experience">
-          <p className="section-label">Background</p>
-          <h2 className="section-title serif">Experience</h2>
+          <RevealDiv delay={0}>
+            <p className="section-label">Background</p>
+            <h2 className="section-title serif">Experience</h2>
+          </RevealDiv>
           <div className="experience-list">
             {data.experience.map((e, i) => (
-              <div key={i} className="exp-item">
-                <p className="exp-period">{e.period}</p>
-                <div>
-                  <p className="exp-company">{e.company}</p>
-                  <p className="exp-role">{e.role}</p>
-                  <ul className="exp-bullets">
-                    {e.bullets.map((b, j) => (
-                      <li key={j}>{b}</li>
-                    ))}
-                  </ul>
+              <RevealDiv key={i} delay={i * 100}>
+                <div className="exp-item">
+                  <p className="exp-period">{e.period}</p>
+                  <div>
+                    <p className="exp-company">{e.company}</p>
+                    <p className="exp-role">{e.role}</p>
+                    <ul className="exp-bullets">
+                      {e.bullets.map((b, j) => (
+                        <li key={j}>{b}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              </RevealDiv>
             ))}
           </div>
         </section>
 
         {/* CONTACT */}
         <section id="contact">
-          <p className="section-label">Say Hello</p>
-          <h2 className="section-title serif">Contact</h2>
-          <p className="contact-intro">
-            I'm always open to new opportunities, collaborations, or just a good
-            conversation about tech and business. Feel free to reach out.
-          </p>
+          <RevealDiv delay={0}>
+            <p className="section-label">Say Hello</p>
+            <h2 className="section-title serif">Contact</h2>
+            <p className="contact-intro">
+              I'm always open to new opportunities, collaborations, or just a good
+              conversation about tech and business. Feel free to reach out.
+            </p>
+          </RevealDiv>
           <div className="contact-links">
-            <a href={`mailto:${data.email}`} className="contact-link">
-              <span className="contact-link-label">Email</span>
-              <span className="contact-link-value">{data.email}</span>
-            </a>
-            <a href={`https://${data.linkedin}`} className="contact-link" target="_blank" rel="noreferrer">
-              <span className="contact-link-label">LinkedIn</span>
-              <span className="contact-link-value">{data.linkedin}</span>
-            </a>
-            <a href={`https://${data.github}`} className="contact-link" target="_blank" rel="noreferrer">
-              <span className="contact-link-label">GitHub</span>
-              <span className="contact-link-value">{data.github}</span>
-            </a>
+            <RevealDiv delay={100}>
+              <a href={`mailto:${data.email}`} className="contact-link">
+                <span className="contact-link-label">Email</span>
+                <span className="contact-link-value">{data.email}</span>
+              </a>
+            </RevealDiv>
+            <RevealDiv delay={200}>
+              <a href={`https://${data.linkedin}`} className="contact-link" target="_blank" rel="noreferrer">
+                <span className="contact-link-label">LinkedIn</span>
+                <span className="contact-link-value">{data.linkedin}</span>
+              </a>
+            </RevealDiv>
+            <RevealDiv delay={300}>
+              <a href={`https://${data.github}`} className="contact-link" target="_blank" rel="noreferrer">
+                <span className="contact-link-label">GitHub</span>
+                <span className="contact-link-value">{data.github}</span>
+              </a>
+            </RevealDiv>
           </div>
         </section>
       </main>
 
       <footer>
-        © {new Date().getFullYear()} {data.name} · Built with Next.js
+        © {new Date().getFullYear()} Ethan Hardy · Built with Next.js
       </footer>
     </>
   );
 }
+~
