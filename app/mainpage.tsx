@@ -453,6 +453,23 @@ export default function Page() {
           .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
           .nav-links { gap: 1.2rem; }
         }
+        .resume-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.resume-button:hover {
+  background: #1f4620;
+  transform: translate(-2px, -2px);
+}
       `}</style>
 
       <nav>
@@ -480,18 +497,17 @@ export default function Page() {
             <p className="hero-title fade-up fade-up-2">{data.title}</p>
             <p className="hero-bio fade-up fade-up-3">{data.bio}</p>
             <span className="hero-degree fade-up fade-up-4">{data.degree}</span>
-            {/* ADD YOUR BUTTON HERE */}
-      <div className="fade-up fade-up-4" style={{ marginTop: "1.5rem" }}>
-        <a 
-          href={data.resume} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="your-button-class" // Replace with your styling class if you have one
-          style={{ display: "inline-block", padding: "0.5rem 1rem", border: "1px solid", borderRadius: "4px", textDecoration: "none" }}
-        >
-          View Resume
-        </a>
-      </div>
+<div className="fade-up fade-up-4" style={{ marginTop: "1.5rem" }}>
+ <a 
+  href={data.resume} 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className="resume-button fade-up fade-up-4"
+  style={{ marginTop: "1.5rem" }}
+>
+  View Resume
+</a>
+</div>
     </div>
           <div
             className="hero-monogram fade-up fade-up-2"
