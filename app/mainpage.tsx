@@ -8,7 +8,7 @@ const data = {
   university: "University Name",
   degree: "B.S. Management Information Systems, Minor in AI in Business",
   bio: "I'm a student passionate about the intersection of technology, data, and business strategy. I build systems that solve real problems — and I'm always learning something new.",
-  resume: "/resume.pdf",
+  resume: "/Ethan Hardy Main Resume.pdf",
   email: "you@email.com",
   github: "github.com/yourhandle",
   linkedin: "linkedin.com/in/yourhandle",
