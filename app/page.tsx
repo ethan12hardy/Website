@@ -4,9 +4,9 @@ import { useState, useEffect, useRef } from "react";
 
 const data = {
   name: "Ethan Hardy",
-  title: "MIS Student · AI in Business & Cybersecurity Minor · Texas A&M",
+  title: "MIS Student · AI in Business · Texas A&M",
   university: "Texas A&M University, Class of 2028",
-  degree: "BBA in Management Information Systems · Minors: AI in Business, Cybersecurity · GPA 3.6",
+  degree: "BBA in Management Information Systems · Minors: AI in Business· GPA 3.6",
   bio: "Howdy, I am currently pursuing a Management Information Systems degree with minors in Artificial Intelligence in Business at Texas A&M University, with a focus on building expertise in data analytics, operational risk, and cloud infrastructure.",
   email: "ethan12hardy@gmail.com",
   github: "github.com/ethan12hardy",
