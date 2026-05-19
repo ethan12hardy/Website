@@ -206,6 +206,24 @@ export default function Page() {
           border-bottom-color: var(--accent);
         }
 
+        .nav-resume {
+          background: var(--accent);
+          color: white;
+          border: none;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 0.78rem;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          padding: 6px 14px;
+          border-radius: 4px;
+          cursor: pointer;
+          text-decoration: none;
+          transition: opacity 0.2s;
+        }
+
+        .nav-resume:hover { opacity: 0.85; }
+
         /* LAYOUT */
         main {
           max-width: 760px;
@@ -533,6 +551,14 @@ export default function Page() {
             </li>
           ))}
         </ul>
+        <a
+          href="https://raw.githubusercontent.com/ethan12hardy/ethan12hardy/main/Ethan%20Hardy%20Main%20Resume.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="nav-resume"
+        >
+          Resume
+        </a>
       </nav>
 
       <main>
@@ -647,6 +673,12 @@ export default function Page() {
               <a href={`https://${data.github}`} className="contact-link" target="_blank" rel="noreferrer">
                 <span className="contact-link-label">GitHub</span>
                 <span className="contact-link-value">{data.github}</span>
+              </a>
+            </RevealDiv>
+            <RevealDiv delay={400}>
+              <a href="https://raw.githubusercontent.com/ethan12hardy/ethan12hardy/main/Ethan%20Hardy%20Main%20Resume.pdf" className="contact-link" target="_blank" rel="noreferrer">
+                <span className="contact-link-label">Resume</span>
+                <span className="contact-link-value">View / Download PDF</span>
               </a>
             </RevealDiv>
           </div>
