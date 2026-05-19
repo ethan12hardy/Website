@@ -641,7 +641,7 @@ export default function Page() {
           ))}
         </ul>
         <a
-          href="https://raw.githubusercontent.com/ethan12hardy/Website/main/resume.pdf"
+          href="/resume.pdf"
           target="_blank"
           rel="noreferrer"
           className="nav-resume"
@@ -793,7 +793,7 @@ export default function Page() {
               </a>
             </RevealDiv>
             <RevealDiv delay={400}>
-              <a href="https://raw.githubusercontent.com/ethan12hardy/Website/main/resume.pdf" className="contact-link" target="_blank" rel="noreferrer">
+              <a href="/resume.pdf" className="contact-link" target="_blank" rel="noreferrer">
                 <span className="contact-link-label">Resume</span>
                 <span className="contact-link-value">View / Download PDF</span>
               </a>
