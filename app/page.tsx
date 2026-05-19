@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from "react";
 
 const data = {
   name: "Ethan Hardy",
-  title: "MIS Student · AI in Business Minor · Texas A&M",
+  title: "MIS Student · AI in Business & Cybersecurity Minor · Texas A&M",
   university: "Texas A&M University, Class of 2028",
-  degree: "BBA in Management Information Systems, Minor in AI in Business · GPA 3.7",
-  bio: "Howdy, I am currently pursuing a Management Information Systems degree with a minor in Artificial Intelligence in business at Texas A&M University, with a focus on building expertise in data analytics, while also learning skills like team motivation and leadership.",
+  degree: "BBA in Management Information Systems · Minors: AI in Business, Cybersecurity · GPA 3.6",
+  bio: "Howdy, I am currently pursuing a Management Information Systems degree with minors in Artificial Intelligence in Business and Cybersecurity at Texas A&M University, with a focus on building expertise in data analytics, operational risk, and cloud infrastructure.",
   email: "ethan12hardy@gmail.com",
   github: "github.com/ethan12hardy",
   linkedin: "linkedin.com/in/ethan12hardy",
@@ -21,22 +21,48 @@ const data = {
       showArrow: true,
     },
     {
+      title: "AITP Tableau Career Outcomes Dashboard",
+      description:
+        "Leading a team to design and build a Tableau dashboard matching MIS student profiles to industry career outcomes data, to be deployed on the Association of Information Technology Professionals public website.",
+      tags: ["Tableau", "Data Analytics", "Team Leadership"],
+      link: "#",
+      showArrow: false,
+    },
+    {
       title: "Lawn Care Business Operations System",
       description:
-        "Founded Tuition Lawn Care and built comprehensive spreadsheet systems to manage operational scheduling, financial tracking, and business operations — supporting a full crew and stable client base.",
-      tags: ["Excel", "Operations", "Entrepreneurship"],
+        "Founded Tuition Lawn Care and built financial tracking and forecasting models in Excel to monitor revenue, operating expenses, and scheduling efficiency — supporting a full crew and stable client base.",
+      tags: ["Excel", "Financial Modeling", "Operations", "Entrepreneurship"],
       link: "#",
       showArrow: false,
     },
   ],
   experience: [
     {
+      role: "Operations Team Specialist",
+      company: "Texas A&M Formula SAE Electric",
+      period: "Apr 2025 – Present",
+      bullets: [
+        "Oversee operational risk and safety compliance for a 100+ member engineering organization, ensuring adherence to university regulations and event protocols.",
+        "Manage a cross-functional team to standardize and streamline engineering workflows, reducing operational inefficiencies and failure points.",
+        "Monitor and track incoming inventory and parts delivery, ensuring supply chain accuracy and timely fulfillment of mission-critical components.",
+      ],
+    },
+    {
       role: "Operations Associate",
       company: "Texas A&M Dept. of Recreational Sports",
       period: "Jan 2026 – Present",
       bullets: [
-        "Serve as a front-end customer service representative, greeting patrons and enforcing facility policies across a 373,000 sq ft. facility and 50-acre outdoor complex.",
-        "Manage entry control and complete customer transactions using Innosoft Fusion software, including equipment rentals and sales.",
+        "Process and record high-volume membership and transaction data using Innosoft Fusion, maintaining accuracy across a 373,000 sq ft. facility and 50-acre complex.",
+        "Enforce facility policies and manage entry control for a large-scale recreational environment, ensuring regulatory compliance and member safety.",
+      ],
+    },
+    {
+      role: "IT Committee Member",
+      company: "AITP, Texas A&M",
+      period: "Jan 2025 – Present",
+      bullets: [
+        "Leading a team to design and build a Tableau career outcomes dashboard matching MIS student profiles to industry data, to be deployed on the AITP public website.",
       ],
     },
     {
@@ -44,28 +70,52 @@ const data = {
       company: "Future Business Leaders of America, TAMU",
       period: "Aug 2025 – Present",
       bullets: [
-        "Mentor the incoming pledge class by fostering a supportive environment that accelerates personal and professional growth.",
-        "Expanded active membership from 50 to 110 students by implementing targeted marketing strategies.",
+        "Expanded active membership from 50 to 110 students through targeted recruitment.",
+        "Mentor incoming pledge class on professional and personal development.",
       ],
     },
     {
-      role: "Founder",
+      role: "Founder & CEO",
       company: "Tuition Lawn Care",
       period: "May 2025 – Aug 2025",
       bullets: [
-        "Founded and scaled a local lawn care business, recruiting and directing a crew to deliver high-quality services to a growing client base.",
-        "Spearheaded marketing campaigns that acquired a stable customer base and drove consistent company growth.",
+        "Built financial tracking and forecasting models in Excel to monitor revenue, operating expenses, and scheduling efficiency, enabling data-driven business decisions.",
+        "Directed a crew of employees, managing task delegation, quality control, and client satisfaction across all service engagements.",
       ],
+    },
+  ],
+  certifications: [
+    {
+      title: "3rd Place — CMIS Case Competition",
+      issuer: "Texas A&M University",
+      date: "Apr 2026",
     },
     {
-      role: "Construction Superintendent",
-      company: "TAMU BUILD",
-      period: "Jan 2025 – Dec 2025",
-      bullets: [
-        "Led safe and timely construction of mobile medical clinics, overseeing daily site operations and critical project milestones.",
-        "Instructed team members on advanced construction processes using hands-on teaching techniques.",
-      ],
+      title: "AWS Certified Cloud Practitioner",
+      issuer: "Amazon Web Services",
+      date: "Apr 2026",
     },
+    {
+      title: "Career Essentials in Data Analysis",
+      issuer: "Microsoft",
+      date: "Aug 2025",
+    },
+    {
+      title: "Data Analytics: Foundations + Extended Applications",
+      issuer: "LinkedIn Learning",
+      date: "Aug 2025",
+    },
+    {
+      title: "Eagle Scout",
+      issuer: "Boy Scouts of America",
+      date: "Apr 2020",
+    },
+  ],
+  skills: [
+    { category: "Programming & Analysis", items: ["Python", "Java", "JavaScript", "C#", "HTML", "Data Modeling", "Financial Analysis"] },
+    { category: "Platforms & Tools", items: ["AWS", "Tableau", "Microsoft Office Suite", "Google Workspace"] },
+    { category: "Interpersonal", items: ["Leadership & Team Motivation", "Cross-functional Collaboration", "Professional Communication", "Analytical Problem Solving", "Client Relations"] },
+
   ],
 };
 
@@ -77,9 +127,7 @@ function useScrollReveal() {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setVisible(entry.isIntersecting);
-      },
+      ([entry]) => { setVisible(entry.isIntersecting); },
       { threshold: 0.12 }
     );
     observer.observe(el);
@@ -90,15 +138,9 @@ function useScrollReveal() {
 }
 
 function RevealDiv({
-  children,
-  delay = 0,
-  className = "",
-  style = {},
+  children, delay = 0, className = "", style = {},
 }: {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-  style?: React.CSSProperties;
+  children: React.ReactNode; delay?: number; className?: string; style?: React.CSSProperties;
 }) {
   const { ref, visible } = useScrollReveal();
   return (
@@ -119,8 +161,7 @@ function RevealDiv({
 
 export default function Page() {
   const [activeSection, setActiveSection] = useState("about");
-
-  const sections = ["about", "projects", "experience", "contact"];
+  const sections = ["about", "projects", "experience", "credentials", "contact"];
 
   const scrollTo = (id: string) => {
     setActiveSection(id);
@@ -157,7 +198,6 @@ export default function Page() {
 
         .serif { font-family: 'DM Serif Display', serif; }
 
-        /* NAV */
         nav {
           position: fixed;
           top: 0; left: 0; right: 0;
@@ -224,7 +264,6 @@ export default function Page() {
 
         .nav-resume:hover { opacity: 0.85; }
 
-        /* LAYOUT */
         main {
           max-width: 760px;
           margin: 0 auto;
@@ -238,7 +277,6 @@ export default function Page() {
 
         section:last-child { border-bottom: none; }
 
-        /* HERO */
         #about {
           padding-top: 140px;
           display: grid;
@@ -305,7 +343,6 @@ export default function Page() {
           margin-top: 8px;
         }
 
-        /* SECTION HEADER */
         .section-label {
           font-size: 0.7rem;
           letter-spacing: 0.14em;
@@ -345,11 +382,7 @@ export default function Page() {
 
         .project-card:last-child { border-bottom: none; }
         .project-card:hover { background: var(--accent-light); }
-
-        .project-card--no-link {
-          cursor: default;
-        }
-
+        .project-card--no-link { cursor: default; }
         .project-card--no-link:hover { background: var(--card-bg); }
 
         .project-row {
@@ -458,6 +491,64 @@ export default function Page() {
           color: var(--accent);
         }
 
+        /* CREDENTIALS */
+        .credentials-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+          margin-bottom: 3rem;
+        }
+
+        .cert-card {
+          background: var(--card-bg);
+          border: 1px solid var(--rule);
+          border-radius: 8px;
+          padding: 1.25rem 1.5rem;
+        }
+
+        .cert-title {
+          font-size: 0.92rem;
+          font-weight: 500;
+          color: var(--ink);
+          margin-bottom: 0.25rem;
+          line-height: 1.4;
+        }
+
+        .cert-meta {
+          font-size: 0.76rem;
+          color: var(--ink-light);
+          display: flex;
+          justify-content: space-between;
+          margin-top: 0.5rem;
+        }
+
+        .cert-issuer { color: var(--accent); font-weight: 500; }
+
+        /* SKILLS */
+        .skills-list {
+          display: flex;
+          flex-direction: column;
+          gap: 1.25rem;
+        }
+
+        .skill-row {
+          display: grid;
+          grid-template-columns: 160px 1fr;
+          gap: 1rem;
+          align-items: start;
+        }
+
+        .skill-category {
+          font-size: 0.72rem;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: var(--ink-light);
+          font-weight: 500;
+          padding-top: 4px;
+        }
+
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
         /* CONTACT */
         .contact-intro {
           font-size: 1.05rem;
@@ -504,11 +595,8 @@ export default function Page() {
           min-width: 70px;
         }
 
-        .contact-link-value {
-          color: var(--ink);
-        }
+        .contact-link-value { color: var(--ink); }
 
-        /* FOOTER */
         footer {
           text-align: center;
           padding: 2.5rem 0;
@@ -517,7 +605,6 @@ export default function Page() {
           letter-spacing: 0.04em;
         }
 
-        /* HERO ANIMATIONS (on load) */
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(18px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -533,6 +620,8 @@ export default function Page() {
           #about { grid-template-columns: 1fr; }
           .hero-monogram { display: none; }
           .exp-item { grid-template-columns: 1fr; gap: 0.5rem; }
+          .skill-row { grid-template-columns: 1fr; gap: 0.4rem; }
+          .credentials-grid { grid-template-columns: 1fr; }
           .nav-links { gap: 1.2rem; }
         }
       `}</style>
@@ -552,7 +641,7 @@ export default function Page() {
           ))}
         </ul>
         <a
-          href="https://raw.githubusercontent.com/ethan12hardy/Website/main/Ethan%20Hardy%20Main%20Resume.pdf"
+          href="https://raw.githubusercontent.com/ethan12hardy/Website/main/resume.pdf"
           target="_blank"
           rel="noreferrer"
           className="nav-resume"
@@ -592,9 +681,7 @@ export default function Page() {
                         <p className="project-name">{p.title}</p>
                         <p className="project-desc">{p.description}</p>
                         <div className="tag-row">
-                          {p.tags.map((t) => (
-                            <span key={t} className="tag">{t}</span>
-                          ))}
+                          {p.tags.map((t) => <span key={t} className="tag">{t}</span>)}
                         </div>
                       </div>
                       <span className="project-arrow">↗</span>
@@ -607,9 +694,7 @@ export default function Page() {
                         <p className="project-name">{p.title}</p>
                         <p className="project-desc">{p.description}</p>
                         <div className="tag-row">
-                          {p.tags.map((t) => (
-                            <span key={t} className="tag">{t}</span>
-                          ))}
+                          {p.tags.map((t) => <span key={t} className="tag">{t}</span>)}
                         </div>
                       </div>
                     </div>
@@ -635,15 +720,47 @@ export default function Page() {
                     <p className="exp-company">{e.company}</p>
                     <p className="exp-role">{e.role}</p>
                     <ul className="exp-bullets">
-                      {e.bullets.map((b, j) => (
-                        <li key={j}>{b}</li>
-                      ))}
+                      {e.bullets.map((b, j) => <li key={j}>{b}</li>)}
                     </ul>
                   </div>
                 </div>
               </RevealDiv>
             ))}
           </div>
+        </section>
+
+        {/* CREDENTIALS */}
+        <section id="credentials">
+          <RevealDiv delay={0}>
+            <p className="section-label">Certifications & Honors</p>
+            <h2 className="section-title serif">Credentials</h2>
+          </RevealDiv>
+          <RevealDiv delay={100}>
+            <div className="credentials-grid">
+              {data.certifications.map((c, i) => (
+                <div key={i} className="cert-card">
+                  <p className="cert-title">{c.title}</p>
+                  <div className="cert-meta">
+                    <span className="cert-issuer">{c.issuer}</span>
+                    <span>{c.date}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </RevealDiv>
+          <RevealDiv delay={200}>
+            <p className="section-label" style={{ marginBottom: "1rem" }}>Technical Skills</p>
+            <div className="skills-list">
+              {data.skills.map((s, i) => (
+                <div key={i} className="skill-row">
+                  <span className="skill-category">{s.category}</span>
+                  <div className="skill-tags">
+                    {s.items.map((item) => <span key={item} className="tag">{item}</span>)}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </RevealDiv>
         </section>
 
         {/* CONTACT */}
@@ -676,7 +793,7 @@ export default function Page() {
               </a>
             </RevealDiv>
             <RevealDiv delay={400}>
-              <a href="https://raw.githubusercontent.com/ethan12hardy/Website/main/Ethan%20Hardy%20Main%20Resume.pdf" className="contact-link" target="_blank" rel="noreferrer">
+              <a href="https://raw.githubusercontent.com/ethan12hardy/Website/main/resume.pdf" className="contact-link" target="_blank" rel="noreferrer">
                 <span className="contact-link-label">Resume</span>
                 <span className="contact-link-value">View / Download PDF</span>
               </a>
@@ -691,3 +808,4 @@ export default function Page() {
     </>
   );
 }
+
