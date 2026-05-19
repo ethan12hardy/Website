@@ -493,7 +493,6 @@ export default function Page() {
         </a>
       </div>
     </div>
-          </div>
           <div
             className="hero-monogram fade-up fade-up-2"
             aria-hidden="true"
