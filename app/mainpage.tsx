@@ -8,6 +8,7 @@ const data = {
   university: "University Name",
   degree: "B.S. Management Information Systems, Minor in AI in Business",
   bio: "I'm a student passionate about the intersection of technology, data, and business strategy. I build systems that solve real problems — and I'm always learning something new.",
+  resume: "/resume.pdf",
   email: "you@email.com",
   github: "github.com/yourhandle",
   linkedin: "linkedin.com/in/yourhandle",
@@ -479,6 +480,19 @@ export default function Page() {
             <p className="hero-title fade-up fade-up-2">{data.title}</p>
             <p className="hero-bio fade-up fade-up-3">{data.bio}</p>
             <span className="hero-degree fade-up fade-up-4">{data.degree}</span>
+            {/* ADD YOUR BUTTON HERE */}
+      <div className="fade-up fade-up-4" style={{ marginTop: "1.5rem" }}>
+        <a 
+          href={data.resume} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="your-button-class" // Replace with your styling class if you have one
+          style={{ display: "inline-block", padding: "0.5rem 1rem", border: "1px solid", borderRadius: "4px", textDecoration: "none" }}
+        >
+          View Resume
+        </a>
+      </div>
+    </div>
           </div>
           <div
             className="hero-monogram fade-up fade-up-2"
