@@ -318,13 +318,21 @@ export default function Page() {
           background: var(--card-bg);
           padding: 1.75rem 2rem;
           border-bottom: 1px solid var(--rule);
-          cursor: pointer;
           transition: background 0.18s;
           position: relative;
+          text-decoration: none;
+          display: block;
+          color: inherit;
         }
 
         .project-card:last-child { border-bottom: none; }
         .project-card:hover { background: var(--accent-light); }
+
+        .project-card--no-link {
+          cursor: default;
+        }
+
+        .project-card--no-link:hover { background: var(--card-bg); }
 
         .project-row {
           display: flex;
@@ -551,25 +559,8 @@ export default function Page() {
           <div className="projects-grid">
             {data.projects.map((p, i) => (
               <RevealDiv key={i} delay={i * 100}>
-                <a
-                  href={p.link ?? "#"}
-                  className="project-card"
-                  style={{ textDecoration: "none", display: "block" }}
-                >
-                  <div className="project-row">
-                    <div>
-                      <p className="project-name">{p.title}</p>
-                      <p className="project-desc">{p.description}</p>
-                      <div className="tag-row">
-                        {p.tags.map((t) => (
-                          <span key={t} className="tag">{t}</span>
-                        ))}
-                {p.showArrow !== false ? (
-                  <a
-                    href={p.link ?? "#"}
-                    className="project-card"
-                    style={{ textDecoration: "none", display: "block" }}
-                  >
+                {p.showArrow ? (
+                  <a href={p.link} className="project-card" target="_blank" rel="noreferrer">
                     <div className="project-row">
                       <div>
                         <p className="project-name">{p.title}</p>
@@ -580,14 +571,11 @@ export default function Page() {
                           ))}
                         </div>
                       </div>
-                    </div>
-                    {p.showArrow !== false && (
                       <span className="project-arrow">↗</span>
-                    )}
                     </div>
                   </a>
                 ) : (
-                  <div className="project-card" style={{ cursor: "default" }}>
+                  <div className="project-card project-card--no-link">
                     <div className="project-row">
                       <div>
                         <p className="project-name">{p.title}</p>
@@ -600,7 +588,6 @@ export default function Page() {
                       </div>
                     </div>
                   </div>
-                </a>
                 )}
               </RevealDiv>
             ))}
@@ -672,4 +659,3 @@ export default function Page() {
     </>
   );
 }
-~
