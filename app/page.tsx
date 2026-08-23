@@ -49,7 +49,7 @@ const data = {
       ],
     },
     {
-      role: "Operations Associate",
+      role: "Operations Specialist",
       company: "Texas A&M Dept. of Recreational Sports",
       period: "Jan 2026 – Present",
       bullets: [
@@ -79,6 +79,7 @@ const data = {
       company: "Tuition Lawn Care",
       period: "May 2025 – Aug 2025",
       bullets: [
+        "Reviewed scheduling and billing workflows using NIST CSF concepts to improve data organization, account security, and access management.",
         "Built financial tracking and forecasting models in Excel to monitor revenue, operating expenses, and scheduling efficiency, enabling data-driven business decisions.",
         "Directed a crew of employees, managing task delegation, quality control, and client satisfaction across all service engagements.",
       ],
