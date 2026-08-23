@@ -85,6 +85,11 @@ const data = {
     },
   ],
   certifications: [
+        {
+      title: "CompTIA Security+ (SY0-701)",
+      issuer: "CompTIA",
+      date: "Aug 2026",
+    },
     {
       title: "3rd Place — CMIS Case Competition",
       issuer: "Texas A&M University",
